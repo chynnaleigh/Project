@@ -139,7 +139,7 @@ const SignupCard = ({ togglePage }) => {
                         onChange={handleOnChange}
                     />
                     <Button
-                        className="bg-yellow-400 text-gray-50 font-sans mt-2"
+                        className="bg-yellow-400 text-gray-50 font-sans mt-2 p-2 hover:brightness-105 ease-in-out"
                         color="primary"
                         type="submit"
                     >

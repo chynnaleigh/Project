@@ -4,8 +4,6 @@ const router = require("express").Router();
 const userVerification =
     require("../Middlewares/AuthMiddleware").userVerification;
 
-// router.post("/signup", Signup);
-// router.post("/login", Login);
 // Handle signup and login actions based on the 'action' query parameter
 router.post("/auth", (req, res, next) => {
     const { action } = req.query;

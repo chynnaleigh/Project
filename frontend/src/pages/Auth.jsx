@@ -3,7 +3,6 @@ import { Grid, Box, Container, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 
 import saveThePlanet from "../images/save-the-planet.svg";
-import environment from "../images/environment.png";
 import LoginCard from "../components/authCards/LoginCard";
 import SignupCard from "../components/authCards/SignupCard";
 import { useAuth } from "../utils/contexts/AuthContext";
@@ -20,11 +19,7 @@ const Auth = () => {
 
     return (
         <div className="flex items-center h-[calc(100vh-80px)] sm:h-screen md:h-[calc(100vh-80px)] ">
-            <Grid
-                container
-                spacing={4}
-                // className="h-100 flex align-center"
-            >
+            <Grid container spacing={4}>
                 <Grid
                     item
                     xs={12}

@@ -4,7 +4,7 @@ import { useCookies } from "react-cookie";
 import axios from "axios";
 // import { ToastContainer, toast } from "react-toastify";
 import { useAuth } from "../utils/contexts/AuthContext";
-import { Box, Grid } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 
 import beeFlower from "../images/bee-flower.svg";
 import ChallengeCard from "../components/ChallengeCard";
@@ -69,37 +69,41 @@ const Home = () => {
 
     return (
         <>
-            <Grid className="mt-8" container spacing={4}>
-                <Grid item xs={1} />
-                <Grid item xs={4}>
-                    <div className="flex flex-col items-center">
-                        <div className="bg-white rounded-full p-4 mb-3 w-fit">
-                            <Box component="img" src={beeFlower} />
+            <Container className="p-9">
+                <Grid className="mt-8 " container spacing={4}>
+                    <Grid item xs={1} />
+                    <Grid item xs={10}>
+                        <div className="flex flex-col items-center ">
+                            <div className="bg-white rounded-full p-4 mb-3 w-fit">
+                                <Box component="img" src={beeFlower} />
+                            </div>
+
+                            <h1 className="text-4xl font-black mb-4">
+                                Welcome <span>{"back, " + username + "!"}</span>
+                            </h1>
                         </div>
+                    </Grid>
+                    <Grid item xs={1} />
 
-                        <h1 className="text-4xl font-black">
-                            Welcome <span>{"back, " + username + "!"}</span>
-                        </h1>
-                    </div>
-                </Grid>
-                <Grid item xs={2} />
-                <Grid item xs={4}>
-                    <ChallengeCard currentChallenge={currentChallenge} />
-                </Grid>
-                <Grid item xs={1} />
+                    <Grid item xs={1} />
+                    <Grid item xs={10}>
+                        <ChallengeCard currentChallenge={currentChallenge} />
+                    </Grid>
+                    <Grid item xs={1} />
 
-                <WeeklyModal
-                    open={open}
-                    setOpen={setOpen}
-                    previousChallenge={previousChallenge}
-                />
+                    <WeeklyModal
+                        open={open}
+                        setOpen={setOpen}
+                        previousChallenge={previousChallenge}
+                    />
 
-                <Grid item xs={1} />
-                <Grid item xs={10}>
-                    <WeeklyProgressCard />
+                    <Grid item xs={1} />
+                    <Grid item xs={10}>
+                        <WeeklyProgressCard />
+                    </Grid>
+                    <Grid item xs={1} />
                 </Grid>
-                <Grid item xs={1} />
-            </Grid>
+            </Container>
 
             {/* <ToastContainer /> */}
         </>
