@@ -18,8 +18,8 @@ module.exports.userVerification = (req, res) => {
         } else {
             const user = await User.findById(data.id);
             if (user) {
-                // const lastLoginWeek = user.lastLoginWeek;
-                const lastLoginWeek = 1; // spoof mode
+                const lastLoginWeek = user.lastLoginWeek;
+                // const lastLoginWeek = 1; // spoof mode
                 let newPreviousChallengeIndexes = user.previousChallengeIndexes;
                 let newChallengeIndex = 0;
                 let newCurrentChallenge = user.currentChallenge;
