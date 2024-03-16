@@ -23,7 +23,7 @@ const Bar = ({ mood, challenge }) => {
     return (
         <>
             <div
-                className={`h-5/6 w-1.5 ${moodColourMap[mood]} rounded`}
+                className={`h-4/6 w-1.5 ${moodColourMap[mood]} rounded`}
                 onMouseEnter={handlePreviousPopoverOpen}
                 onMouseLeave={handlePreviousPopoverClose}
             ></div>

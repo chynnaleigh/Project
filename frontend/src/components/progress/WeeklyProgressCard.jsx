@@ -53,7 +53,11 @@ const WeeklyProgressCard = () => {
                         Progress
                     </Typography>
                 </div>
-                <ButtonGroup variant="outlined" aria-label="Basic button group">
+                <ButtonGroup
+                    className="justify-center"
+                    variant="outlined"
+                    aria-label="Basic button group"
+                >
                     <Button
                         className={`${color(monthButtonActive)} hue-rotate-30`}
                         onClick={(event) => handleClick(event, 4)}
@@ -83,17 +87,31 @@ const WeeklyProgressCard = () => {
                         Past Year
                     </Button>
                 </ButtonGroup>
-                <div className="flex justify-between items-end border-4 border-gray-100 p-3 rounded h-full">
-                    {[...previousChallengeStatuses]
-                        .reverse()
-                        .filter((_, index) => index < weeks)
-                        .map((previousChallenge, j) => (
-                            <Bar
-                                mood={previousChallenge[0]}
-                                challenge={previousChallenge[1]}
-                                key={j}
-                            ></Bar>
-                        ))}
+                <div className="border-4 border-gray-100 p-3 rounded h-full">
+                    <div className="flex items-center subpixel-antialiased text-gray-400">
+                        <div className="mr-2 w-2 h-2 rounded-full bg-lime-300"></div>
+                        <small>Great</small>
+                    </div>
+                    <div className="flex items-center subpixel-antialiased text-gray-400">
+                        <div className="mr-2 w-2 h-2 rounded-full bg-slate-200"></div>
+                        <small>Just Okay</small>
+                    </div>
+                    <div className="flex items-center subpixel-antialiased text-gray-400">
+                        <div className="mr-2 w-2 h-2 rounded-full bg-sky-200"></div>
+                        <small>Not Great</small>
+                    </div>
+                    <div className="flex justify-between items-end h-5/6 -mt-6">
+                        {[...previousChallengeStatuses]
+                            .reverse()
+                            .filter((_, index) => index < weeks)
+                            .map((previousChallenge, j) => (
+                                <Bar
+                                    mood={previousChallenge[0]}
+                                    challenge={previousChallenge[1]}
+                                    key={j}
+                                ></Bar>
+                            ))}
+                    </div>
                 </div>
                 <div className="flex justify-between subpixel-antialiased text-gray-400 mx-0.5 -mt-5">
                     <div>Recent</div>
