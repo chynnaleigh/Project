@@ -3,7 +3,7 @@ const User = require("../Models/UserModel");
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
 
-module.exports.updateWeeklyStatus = (req, res, next) => {
+module.exports.changeChallenge = (req, res, next) => {
     const token = req.cookies.token;
     if (!token) {
         return res.json({ status: false });
@@ -14,17 +14,11 @@ module.exports.updateWeeklyStatus = (req, res, next) => {
         } else {
             const user = await User.findById(data.id);
             if (user) {
-                console.log("updating weekly status: ", req.body.weeklyStatus);
-                const newPreviousChallengeStatuses = [
-                    ...user.previousChallengeStatuses,
-                    [req.body.weeklyStatus, req.body.previousChallenge],
-                ];
-                // update weekly status to mongodb
+                // update current challenge to mongodb
                 const updatedUser = await User.findOneAndUpdate(
                     { email: user.email },
                     {
-                        isWeeklyStatusComplete: true,
-                        previousChallengeStatuses: newPreviousChallengeStatuses,
+                        currentChallenge: req.body.currentChallenge,
                     }
                 );
 

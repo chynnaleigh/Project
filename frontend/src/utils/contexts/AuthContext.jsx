@@ -16,6 +16,9 @@ export const AuthProvider = ({ children }) => {
     const [username, setUsername] = useState("");
     const [currentChallenge, setCurrentChallenge] = useState(null);
     const [previousChallenge, setPreviousChallenge] = useState(null);
+    const [previousChallengeStatuses, setPreviousChallengeStatuses] = useState(
+        []
+    );
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     // Login function
@@ -47,6 +50,8 @@ export const AuthProvider = ({ children }) => {
                 setCurrentChallenge,
                 previousChallenge,
                 setPreviousChallenge,
+                previousChallengeStatuses,
+                setPreviousChallengeStatuses,
                 isLoggedIn,
                 setIsLoggedIn,
                 login,

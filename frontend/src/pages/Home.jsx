@@ -9,7 +9,7 @@ import { Box, Grid } from "@mui/material";
 import beeFlower from "../images/bee-flower.svg";
 import ChallengeCard from "../components/ChallengeCard";
 import WeeklyProgressCard from "../components/progress/WeeklyProgressCard";
-import WeeklyStatusModal from "../components/moods/WeeklyStatusModal";
+import WeeklyModal from "../components/moods/WeeklyModal";
 
 const Home = () => {
     const navigate = useNavigate();
@@ -22,13 +22,11 @@ const Home = () => {
         setCurrentChallenge,
         previousChallenge,
         setPreviousChallenge,
+        setPreviousChallengeStatuses,
         setIsLoggedIn,
     } = useAuth();
 
     const [open, setOpen] = useState(false);
-    const handleClose = () => {
-        //setOpen(false);
-    };
 
     useEffect(() => {
         console.log("Inside useEffect in Home");
@@ -49,6 +47,7 @@ const Home = () => {
                 user,
                 currentChallenge,
                 previousChallenge,
+                previousChallengeStatuses,
                 isWeeklyStatusComplete,
             } = data;
             setOpen(!isWeeklyStatusComplete); // if weekly status update is not complete, show modal and make user fill out form
@@ -57,6 +56,7 @@ const Home = () => {
             setIsLoggedIn(true);
             setCurrentChallenge(currentChallenge);
             setPreviousChallenge(previousChallenge);
+            setPreviousChallengeStatuses(previousChallengeStatuses);
             // return status
             //     ? toast(`Hello ${user}`, {
             //           position: "top-right",
@@ -88,10 +88,9 @@ const Home = () => {
                 </Grid>
                 <Grid item xs={1} />
 
-                <WeeklyStatusModal
+                <WeeklyModal
                     open={open}
                     setOpen={setOpen}
-                    handleClose={handleClose}
                     previousChallenge={previousChallenge}
                 />
 

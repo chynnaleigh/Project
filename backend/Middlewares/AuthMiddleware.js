@@ -75,6 +75,7 @@ module.exports.userVerification = (req, res) => {
                     user: user.username,
                     currentChallenge: newCurrentChallenge,
                     previousChallenge: newPreviousChallenge,
+                    previousChallengeStatuses: user.previousChallengeStatuses,
                     isWeeklyStatusComplete: newIsWeeklyStatusComplete,
                 });
             } else return res.json({ status: false });
