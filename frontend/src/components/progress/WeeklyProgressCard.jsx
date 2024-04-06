@@ -1,4 +1,4 @@
-import { Container, Typography, Box, Button, ButtonGroup } from "@mui/material";
+import { Container, Typography, Button, ButtonGroup } from "@mui/material";
 import React, { useState } from "react";
 import Bar from "./Bar";
 import { useAuth } from "../../utils/contexts/AuthContext";
