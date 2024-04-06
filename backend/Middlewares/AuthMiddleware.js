@@ -1,7 +1,7 @@
 const dateInfo = require("../util/DateInfo");
 const User = require("../Models/UserModel");
 const weeklyChallenges = require("../util/constants/challenges");
-const shuffleArray = require("../util/shuffleArray");
+const shuffleArray = require("../util/ShuffleArray");
 const randomInt = require("../util/randomUtils");
 
 require("dotenv").config();
