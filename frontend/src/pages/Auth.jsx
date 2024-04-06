@@ -15,8 +15,6 @@ const Auth = () => {
         setAuthPage(newPage);
     };
 
-    // useEffect(() => {}, [authPage]);
-
     return (
         <div className="flex items-center h-[calc(100vh-80px)] sm:h-screen md:h-[calc(100vh-80px)] ">
             <Grid container spacing={4}>
