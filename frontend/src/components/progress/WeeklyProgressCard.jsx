@@ -101,16 +101,17 @@ const WeeklyProgressCard = () => {
                         <small>Not Great</small>
                     </div>
                     <div className="flex justify-between items-end h-5/6 -mt-6">
-                        {[...previousChallengeStatuses]
-                            .reverse()
-                            .filter((_, index) => index < weeks)
-                            .map((previousChallenge, j) => (
-                                <Bar
-                                    mood={previousChallenge[0]}
-                                    challenge={previousChallenge[1]}
-                                    key={j}
-                                ></Bar>
-                            ))}
+                        {Array.isArray(previousChallengeStatuses) &&
+                            [...previousChallengeStatuses]
+                                .reverse()
+                                .filter((_, index) => index < weeks)
+                                .map((previousChallenge, j) => (
+                                    <Bar
+                                        mood={previousChallenge[0]}
+                                        challenge={previousChallenge[1]}
+                                        key={j}
+                                    ></Bar>
+                                ))}
                     </div>
                 </div>
                 <div className="flex justify-between subpixel-antialiased text-gray-400 mx-0.5 -mt-5">

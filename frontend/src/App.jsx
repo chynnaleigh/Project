@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Layout, Home, Profile, About, Auth, NoPage } from "./pages";
+import { Layout, Home, Auth, NoPage } from "./pages";
 
 const App = () => {
     console.log("Rendering App component");
