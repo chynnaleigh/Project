@@ -3,10 +3,29 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-import { TextField, Box, Typography, Container, Button } from "@mui/material";
+import {
+    InputAdornment,
+    IconButton,
+    TextField,
+    Box,
+    Typography,
+    Container,
+    Button,
+} from "@mui/material";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+// import { useAuth } from "../../utils/contexts/AuthContext";
 
 const SignupCard = ({ togglePage }) => {
     const [showPassword, setShowPassword] = useState(false);
+
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+    // const { login } = useAuth();
+
+    const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+    };
 
     const navigate = useNavigate();
     const [inputValue, setInputValue] = useState({
@@ -117,6 +136,24 @@ const SignupCard = ({ togglePage }) => {
                         name="password"
                         autoComplete="current-password"
                         type={showPassword ? "text" : "password"}
+                        InputProps={{
+                            endAdornment: (
+                                <InputAdornment position="end">
+                                    <IconButton
+                                        aria-label="toggle password visibility"
+                                        onClick={handleClickShowPassword}
+                                        onMouseDown={handleMouseDownPassword}
+                                        edge="end"
+                                    >
+                                        {showPassword ? (
+                                            <VisibilityOff />
+                                        ) : (
+                                            <Visibility />
+                                        )}
+                                    </IconButton>
+                                </InputAdornment>
+                            ),
+                        }}
                         onChange={handleOnChange}
                     />
                     <TextField
@@ -128,6 +165,24 @@ const SignupCard = ({ togglePage }) => {
                         name="confirmPassword"
                         autoComplete="current-password"
                         type={showPassword ? "text" : "password"}
+                        InputProps={{
+                            endAdornment: (
+                                <InputAdornment position="end">
+                                    <IconButton
+                                        aria-label="toggle password visibility"
+                                        onClick={handleClickShowPassword}
+                                        onMouseDown={handleMouseDownPassword}
+                                        edge="end"
+                                    >
+                                        {showPassword ? (
+                                            <VisibilityOff />
+                                        ) : (
+                                            <Visibility />
+                                        )}
+                                    </IconButton>
+                                </InputAdornment>
+                            ),
+                        }}
                         onChange={handleOnChange}
                     />
                     <Button
