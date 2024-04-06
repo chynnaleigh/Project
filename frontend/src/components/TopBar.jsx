@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button, AppBar, Box, Toolbar, Typography } from "@mui/material";
 import { useAuth } from "../utils/contexts/AuthContext";
@@ -6,8 +6,7 @@ import { useAuth } from "../utils/contexts/AuthContext";
 import leaf from "../images/leaf.svg";
 
 const TopBar = () => {
-    const { setAuthPage, username, isLoggedIn, setIsLoggedIn, logout } =
-        useAuth();
+    const { username, isLoggedIn, logout } = useAuth();
 
     useEffect(() => {
         console.log(username);

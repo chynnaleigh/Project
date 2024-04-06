@@ -1,17 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-import {
-    InputAdornment,
-    IconButton,
-    TextField,
-    Box,
-    Typography,
-    Container,
-    Button,
-} from "@mui/material";
+import { TextField, Box, Typography, Container, Button } from "@mui/material";
 
 const SignupCard = ({ togglePage }) => {
     const [showPassword, setShowPassword] = useState(false);

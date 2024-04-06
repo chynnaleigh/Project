@@ -1,6 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
-import { Grid, Box, Container, Typography } from "@mui/material";
-import { useState, useEffect } from "react";
+import { Grid, Box } from "@mui/material";
 
 import saveThePlanet from "../images/save-the-planet.svg";
 import LoginCard from "../components/authCards/LoginCard";
