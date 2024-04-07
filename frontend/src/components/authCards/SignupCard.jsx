@@ -60,7 +60,7 @@ const SignupCard = ({ togglePage }) => {
         }
         try {
             const { data } = await axios.post(
-                "http://localhost:4000/auth?action=signup",
+                "https://sustainabeebackend.onrender.com/auth?action=signup",
                 {
                     ...inputValue,
                 },

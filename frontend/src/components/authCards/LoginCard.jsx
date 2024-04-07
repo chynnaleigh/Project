@@ -50,7 +50,7 @@ const LoginCard = ({ togglePage }) => {
         e.preventDefault();
         try {
             const { data } = await axios.post(
-                "http://localhost:4000/auth?action=login",
+                "https://sustainabeebackend.onrender.com/auth?action=login",
                 {
                     ...inputValue,
                 },

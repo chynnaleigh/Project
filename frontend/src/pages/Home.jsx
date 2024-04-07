@@ -36,7 +36,7 @@ const Home = () => {
                 navigate("/auth");
             }
             const { data } = await axios.post(
-                "http://localhost:4000/",
+                "https://sustainabeebackend.onrender.com",
                 {},
                 { withCredentials: true }
             );
