@@ -37,7 +37,7 @@ const ChangeChallenge = ({ setOpen }) => {
     const handleSubmitProgress = async (challenge) => {
         try {
             const { data } = await axios.post(
-                "https://sustainabeebackend.onrender.com/changeChallenge",
+                "http://localhost:4000/changeChallenge",
                 {
                     email: email,
                     currentChallenge: challenge,

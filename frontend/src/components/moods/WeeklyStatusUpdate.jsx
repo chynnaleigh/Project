@@ -43,7 +43,7 @@ const WeeklyStatusUpdate = ({ setWeeklyStatusUpdate }) => {
         console.log("activeStatus", activeStatus);
         try {
             const { data } = await axios.post(
-                "https://sustainabeebackend.onrender.com/weeklyStatus",
+                "http://localhost:4000/weeklyStatus",
                 {
                     email: email,
                     weeklyStatus: activeStatus,
