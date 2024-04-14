@@ -19,7 +19,8 @@ import { useAuth } from "../../utils/contexts/AuthContext";
 
 const LoginCard = ({ togglePage }) => {
     const [showPassword, setShowPassword] = useState(false);
-    const [cookies, removeCookie] = useCookies(["token"]);
+    // const [cookies, removeCookie] = useCookies(["token"]);
+    const [cookies, removeCookie] = useCookies(["authToken"]);
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 

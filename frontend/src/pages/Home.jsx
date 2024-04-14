@@ -13,7 +13,8 @@ import WeeklyModal from "../components/moods/WeeklyModal";
 
 const Home = () => {
     const navigate = useNavigate();
-    const [cookies, removeCookie] = useCookies(["token"]);
+    // const [cookies, removeCookie] = useCookies(["token"]);
+    const [cookies, removeCookie] = useCookies(["authToken"]);
     const {
         username,
         setUsername,
@@ -32,17 +33,29 @@ const Home = () => {
         console.log("Inside useEffect in Home");
         const verifyCookie = async () => {
             console.log("Token not found, navigating to /auth");
+            // if (
+            //     !cookies.token ||
+            //     cookies.token === "undefined" ||
+            //     cookies.token === "false"
+            // ) {
+            //     // removeCookie("token", { path: "/" });
+            //     navigate("/auth");
+            //     console.log("cookies.token are falsy");
+            //     return;
+            // }
             if (
-                !cookies.token ||
-                cookies.token === "undefined" ||
-                cookies === "false"
+                !cookies.authToken ||
+                cookies.authToken === "undefined" ||
+                cookies.authToken === "false"
             ) {
-                removeCookie("token", { path: "/" });
+                // removeCookie("token", { path: "/" });
                 navigate("/auth");
-                console.log("cookies.token are falsy");
+                console.log("cookies.authToken are falsy");
                 return;
             }
-            console.log("cookies.token", cookies.token);
+            // console.log("cookies.token", cookies.token);
+            console.log("cookies.authToken", cookies.authToken);
+
             const { data } = await axios.post(
                 "https://sustainabeebackend.onrender.com/",
                 {},
@@ -70,7 +83,10 @@ const Home = () => {
             //           position: "top-right",
             //       })
             //     : (removeCookie("token"), navigate("/auth"));
-            return status ? null : (removeCookie("token"), navigate("/auth"));
+            // return status ? null : (removeCookie("token"), navigate("/auth"));
+            return status
+                ? null
+                : (removeCookie("authToken", { path: "/" }), navigate("/auth"));
         };
         verifyCookie();
     }, [cookies, navigate, removeCookie]);
