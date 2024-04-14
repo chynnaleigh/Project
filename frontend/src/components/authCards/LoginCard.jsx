@@ -51,7 +51,7 @@ const LoginCard = ({ togglePage }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            removeCookie("token");
+            removeCookie("token", { path: "/" });
             const { data } = await axios.post(
                 "https://sustainabeebackend.onrender.com/auth?action=login",
                 {
