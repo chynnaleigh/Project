@@ -8,7 +8,7 @@ const AuthContext = createContext();
 // Create a context provider
 export const AuthProvider = ({ children }) => {
     const navigate = useNavigate();
-    const [cookies, removeCookie] = useCookies([]);
+    const [cookies, removeCookie] = useCookies(["token"]);
 
     const [authPage, setAuthPage] = useState("login");
 
@@ -33,7 +33,8 @@ export const AuthProvider = ({ children }) => {
         setEmail("");
         setUsername("");
         setIsLoggedIn(false);
-        removeCookie("token");
+        // removeCookie("token");
+        removeCookie("token", { path: "/" });
         navigate("/auth");
     };
 

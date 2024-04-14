@@ -19,7 +19,7 @@ import { useAuth } from "../../utils/contexts/AuthContext";
 
 const LoginCard = ({ togglePage }) => {
     const [showPassword, setShowPassword] = useState(false);
-    const [cookies, removeCookie] = useCookies([]);
+    const [cookies, removeCookie] = useCookies(["token"]);
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -51,7 +51,7 @@ const LoginCard = ({ togglePage }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            removeCookie("token", { path: "/" });
+            // removeCookie("token", { path: "/" });
             const { data } = await axios.post(
                 "https://sustainabeebackend.onrender.com/auth?action=login",
                 {

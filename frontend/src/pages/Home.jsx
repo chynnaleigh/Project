@@ -13,7 +13,7 @@ import WeeklyModal from "../components/moods/WeeklyModal";
 
 const Home = () => {
     const navigate = useNavigate();
-    const [cookies, removeCookie] = useCookies([]);
+    const [cookies, removeCookie] = useCookies(["token"]);
     const {
         username,
         setUsername,
@@ -37,7 +37,7 @@ const Home = () => {
                 cookies.token === "undefined" ||
                 cookies === "false"
             ) {
-                removeCookie("token");
+                removeCookie("token", { path: "/" });
                 navigate("/auth");
                 console.log("cookies.token are falsy");
                 return;
