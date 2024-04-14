@@ -39,6 +39,7 @@ const Home = () => {
             ) {
                 navigate("/auth");
                 console.log("cookies.token are falsy");
+                return;
             }
             console.log("cookies.token", cookies.token);
             const { data } = await axios.post(
