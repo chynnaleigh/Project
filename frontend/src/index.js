@@ -9,6 +9,7 @@ import {
 import App from "./App";
 import { AuthProvider } from "./utils/contexts/AuthContext";
 import { BrowserRouter } from "react-router-dom";
+import { CookiesProvider } from "react-cookie";
 import "react-toastify/dist/ReactToastify.css";
 
 const rootElement = document.getElementById("root");
@@ -29,7 +30,9 @@ root.render(
         <ThemeProvider theme={theme}>
             <BrowserRouter>
                 <AuthProvider>
-                    <App />
+                    <CookiesProvider defaultSetOptions={{ path: "/" }}>
+                        <App />
+                    </CookiesProvider>
                 </AuthProvider>
             </BrowserRouter>
         </ThemeProvider>
