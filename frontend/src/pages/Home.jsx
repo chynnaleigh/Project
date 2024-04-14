@@ -35,8 +35,9 @@ const Home = () => {
             if (!cookies.token) {
                 navigate("/auth");
             }
+            console.log("cookies.token", cookies.token);
             const { data } = await axios.post(
-                "https://sustainabeebackend.onrender.com",
+                "https://sustainabeebackend.onrender.com/",
                 {},
                 { withCredentials: true }
             );
