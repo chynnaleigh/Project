@@ -84,9 +84,7 @@ const Home = () => {
             //       })
             //     : (removeCookie("token"), navigate("/auth"));
             // return status ? null : (removeCookie("token"), navigate("/auth"));
-            return status
-                ? null
-                : (removeCookie("authToken", { path: "/" }), navigate("/auth"));
+            return status ? null : navigate("/auth");
         };
         verifyCookie();
     }, [cookies, navigate, removeCookie]);
