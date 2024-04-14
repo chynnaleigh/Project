@@ -34,6 +34,7 @@ const Home = () => {
             console.log("Token not found, navigating to /auth");
             if (!cookies.token) {
                 navigate("/auth");
+                console.log("cookies.token are falsy");
             }
             console.log("cookies.token", cookies.token);
             const { data } = await axios.post(
