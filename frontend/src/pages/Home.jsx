@@ -39,6 +39,7 @@ const Home = () => {
             ) {
                 navigate("/auth");
                 console.log("cookies.token are falsy");
+                removeCookie("token");
                 return;
             }
             console.log("cookies.token", cookies.token);
