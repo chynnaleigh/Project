@@ -32,7 +32,11 @@ const Home = () => {
         console.log("Inside useEffect in Home");
         const verifyCookie = async () => {
             console.log("Token not found, navigating to /auth");
-            if (!cookies.token) {
+            if (
+                !cookies.token ||
+                cookies.token === "undefined" ||
+                cookies === "false"
+            ) {
                 navigate("/auth");
                 console.log("cookies.token are falsy");
             }
