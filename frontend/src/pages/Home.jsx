@@ -37,7 +37,8 @@ const Home = () => {
                 cookies.token === "undefined" ||
                 cookies === "false"
             ) {
-                removeCookie("token"), navigate("/auth");
+                removeCookie("token");
+                navigate("/auth");
                 console.log("cookies.token are falsy");
                 return;
             }
