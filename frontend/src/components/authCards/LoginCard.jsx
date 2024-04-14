@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie;";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import {
@@ -17,7 +18,8 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useAuth } from "../../utils/contexts/AuthContext";
 
 const LoginCard = ({ togglePage }) => {
-    const [showPassword, setShowPassword] = React.useState(false);
+    const [showPassword, setShowPassword] = useState(false);
+    const [cookies, removeCookie] = useCookies([]);
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -49,6 +51,7 @@ const LoginCard = ({ togglePage }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            removeCookie("token");
             const { data } = await axios.post(
                 "https://sustainabeebackend.onrender.com/auth?action=login",
                 {
