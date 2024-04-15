@@ -46,8 +46,10 @@ const LoginCard = ({ togglePage }) => {
 
     const handleError = (err) => toast.error(err, { position: "bottom-left" });
 
-    const handleSuccess = (msg) =>
+    const handleSuccess = (msg) => {
+        console.log(msg);
         toast.success(msg, { position: "bottom-left" });
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();

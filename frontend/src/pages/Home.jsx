@@ -85,8 +85,10 @@ const Home = () => {
             //           position: "top-right",
             //       })
             //     : (removeCookie("token"), navigate("/auth"));
-            // return status ? null : (removeCookie("token"), navigate("/auth"));
-            return status ? null : navigate("/auth");
+            return status
+                ? null
+                : (removeCookie("authToken"), navigate("/auth"));
+            // return status ? null : navigate("/auth");
         };
         verifyCookie();
     }, [cookies, navigate, removeCookie]);
