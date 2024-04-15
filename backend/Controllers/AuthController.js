@@ -31,14 +31,17 @@ module.exports.Signup = async (req, res, next) => {
             isWeeklyStatusComplete,
         });
         const token = createSecretToken(user._id);
-        res.cookie("token", token, {
+        res.cookie("authToken", token, {
             withCredentials: true,
             httpOnly: false,
+            sameSite: "none",
+            secure: true,
         });
         res.status(201).json({
             message: "User signed in successfully",
             success: true,
             user,
+            authToken: token,
         });
         next();
     } catch (error) {

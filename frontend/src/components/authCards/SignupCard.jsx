@@ -21,7 +21,7 @@ const SignupCard = ({ togglePage }) => {
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-    // const { login } = useAuth();
+    const { login } = useAuth();
 
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
@@ -66,8 +66,9 @@ const SignupCard = ({ togglePage }) => {
                 },
                 { withCredentials: true }
             );
-            const { success, message } = data;
+            const { success, message, authToken } = data;
             if (success) {
+                login(authToken);
                 handleSuccess(message);
                 setTimeout(() => {
                     navigate("/");
