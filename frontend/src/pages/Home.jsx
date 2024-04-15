@@ -42,7 +42,7 @@ const Home = () => {
             //     console.log("cookies.token are falsy");
             //     return;
             // }
-
+            console.log("before check: cookies", cookies);
             console.log("before check: cookies.authToken", cookies.authToken);
             if (
                 !cookies.authToken ||
