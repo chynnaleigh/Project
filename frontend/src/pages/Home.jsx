@@ -32,7 +32,6 @@ const Home = () => {
     useEffect(() => {
         console.log("Inside useEffect in Home");
         const verifyCookie = async () => {
-            console.log("Token not found, navigating to /auth");
             // if (
             //     !cookies.token ||
             //     cookies.token === "undefined" ||
@@ -43,18 +42,21 @@ const Home = () => {
             //     console.log("cookies.token are falsy");
             //     return;
             // }
+
+            console.log("before check: cookies.authToken", cookies.authToken);
             if (
                 !cookies.authToken ||
                 cookies.authToken === "undefined" ||
                 cookies.authToken === "false"
             ) {
+                console.log("Token not found, navigating to /auth");
                 // removeCookie("token", { path: "/" });
                 navigate("/auth");
                 console.log("cookies.authToken are falsy");
                 return;
             }
             // console.log("cookies.token", cookies.token);
-            console.log("cookies.authToken", cookies.authToken);
+            console.log("after check: cookies.authToken", cookies.authToken);
 
             const { data } = await axios.post(
                 "https://sustainabeebackend.onrender.com/",
