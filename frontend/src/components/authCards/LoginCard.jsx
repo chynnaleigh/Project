@@ -20,7 +20,7 @@ import { useAuth } from "../../utils/contexts/AuthContext";
 const LoginCard = ({ togglePage }) => {
     const [showPassword, setShowPassword] = useState(false);
     // const [cookies, removeCookie] = useCookies(["token"]);
-    const [cookies, removeCookie] = useCookies(["authToken"]);
+    const [cookies, removeCookie] = useCookies([]);
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -65,10 +65,12 @@ const LoginCard = ({ togglePage }) => {
             if (success) {
                 login();
                 handleSuccess(message);
+                console.log("cookies", cookies);
                 console.log("Before navigating to home");
                 setTimeout(() => {
                     navigate("/");
                 }, 1000);
+
                 console.log("After navigating to home");
             } else {
                 handleError(message);
