@@ -25,8 +25,8 @@ app.use(
     cors({
         origin: [
             "https://sustainabee.onrender.com",
-            "https://sustainabee.work/",
-            "https://www.sustainabee.work/",
+            "https://sustainabee.work",
+            "https://www.sustainabee.work",
         ],
         methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true,
