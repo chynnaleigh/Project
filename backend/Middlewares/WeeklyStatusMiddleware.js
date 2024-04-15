@@ -4,7 +4,7 @@ require("dotenv").config();
 const jwt = require("jsonwebtoken");
 
 module.exports.updateWeeklyStatus = (req, res, next) => {
-    const token = req.cookies.token;
+    const token = req.cookies.authToken;
     if (!token) {
         return res.json({ status: false });
     }
