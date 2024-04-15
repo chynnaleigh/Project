@@ -9,7 +9,7 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const navigate = useNavigate();
     // const [cookies, removeCookie] = useCookies(["token"]);
-    const [cookies, removeCookie] = useCookies(["authToken"]);
+    const [cookies, setCookie, removeCookie] = useCookies(["authToken"]);
 
     const [authPage, setAuthPage] = useState("login");
 
@@ -23,9 +23,10 @@ export const AuthProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     // Login function
-    const login = (email, username) => {
-        setEmail(email);
-        setUsername(username);
+    const login = (authToken) => {
+        // setEmail(email);
+        // setUsername(username);
+        setCookie("authToken", authToken);
         setIsLoggedIn(true);
     };
 

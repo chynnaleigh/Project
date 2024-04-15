@@ -61,9 +61,9 @@ const LoginCard = ({ togglePage }) => {
                 { withCredentials: true }
             );
             console.log(data);
-            const { success, message } = data;
+            const { success, message, authToken } = data;
             if (success) {
-                login();
+                login(authToken);
                 handleSuccess(message);
                 console.log("cookies", cookies);
                 console.log("Before navigating to home");
