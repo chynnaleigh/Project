@@ -66,6 +66,8 @@ module.exports.Login = async (req, res, next) => {
         res.cookie("authToken", token, {
             withCredentials: true,
             httpOnly: false,
+            sameSite: "none",
+            secure: true,
         });
         res.status(201).json({
             message: "User logged in successfully",
