@@ -62,11 +62,21 @@ module.exports.Login = async (req, res, next) => {
         if (!auth) {
             return res.json({ message: "Incorrect password or email" });
         }
+        res.header("Access-Control-Allow-Credentials", true);
+        res.header(
+            "Access-Control-Allow-Methods",
+            "GET,PUT,POST,DELETE,UPDATE,OPTIONS"
+        );
+        res.header(
+            "Access-Control-Allow-Headers",
+            "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept"
+        );
         const token = createSecretToken(user._id);
         res.cookie("authToken", token, {
             withCredentials: true,
             httpOnly: false,
             sameSite: "none",
+            secure: true,
         });
         res.status(201).json({
             message: "User logged in successfully",
